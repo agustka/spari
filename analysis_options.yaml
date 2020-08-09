@@ -1,0 +1,22 @@
+include: package:lint/analysis_options.yaml
+# include: package:pedantic/analysis_options.yaml
+
+linter:
+  rules:
+    - parameter_assignments
+
+analyzer:
+  exclude: [
+    build/**,
+    lib/**.g.dart,
+    lib/**.gr.dart,
+    lib/**.freezed.dart,
+    lib/**.iconfig.dart,
+  ]
+
+  errors:
+    missing_return: error
+    missing_required_param: error
+    must_be_immutable: error
+    prefer_const_constructors: error
+    parameter_assignments: error

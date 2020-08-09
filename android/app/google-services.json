@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "268223872629",
+    "firebase_url": "https://spari-fc0d5.firebaseio.com",
+    "project_id": "spari-fc0d5",
+    "storage_bucket": "spari-fc0d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268223872629:android:88625a26783477f7ac023c",
+        "android_client_info": {
+          "package_name": "is.snjohus.spari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268223872629-bgtsmv2vgv8aggsviqtl7957dlvij0r6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "is.snjohus.spari",
+            "certificate_hash": "feccbb3b8d0483e1075fcdeef350521ebde96dfe"
+          }
+        },
+        {
+          "client_id": "268223872629-qd2bbii446odqs5d0a237j8q817o1hdi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl4NwjGq2AKf5pPUag8PCXqPcFIDhg2cw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268223872629-qd2bbii446odqs5d0a237j8q817o1hdi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
