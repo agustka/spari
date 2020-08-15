@@ -27,6 +27,24 @@ class _$FailureTearOff {
   }
 
 // ignore: unused_element
+  InvalidEmail<T> invalidEmail<T>(
+      {String failedValue, @required String message}) {
+    return InvalidEmail<T>(
+      failedValue: failedValue,
+      message: message,
+    );
+  }
+
+// ignore: unused_element
+  InvalidPassword<T> invalidPassword<T>(
+      {String failedValue, @required String message}) {
+    return InvalidPassword<T>(
+      failedValue: failedValue,
+      message: message,
+    );
+  }
+
+// ignore: unused_element
   InvalidText<T> invalidText<T>(
       {String failedValue, @required String message}) {
     return InvalidText<T>(
@@ -176,6 +194,8 @@ mixin _$Failure<T> {
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -199,6 +219,8 @@ mixin _$Failure<T> {
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -221,6 +243,8 @@ mixin _$Failure<T> {
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -244,6 +268,8 @@ mixin _$Failure<T> {
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -320,6 +346,8 @@ class _$NoFailure<T> with DiagnosticableTreeMixin implements NoFailure<T> {
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -341,6 +369,8 @@ class _$NoFailure<T> with DiagnosticableTreeMixin implements NoFailure<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -365,6 +395,8 @@ class _$NoFailure<T> with DiagnosticableTreeMixin implements NoFailure<T> {
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -395,6 +427,8 @@ class _$NoFailure<T> with DiagnosticableTreeMixin implements NoFailure<T> {
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -416,6 +450,8 @@ class _$NoFailure<T> with DiagnosticableTreeMixin implements NoFailure<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -440,6 +476,8 @@ class _$NoFailure<T> with DiagnosticableTreeMixin implements NoFailure<T> {
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -551,6 +589,8 @@ class _$ExceptionThrown<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -572,6 +612,8 @@ class _$ExceptionThrown<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -596,6 +638,8 @@ class _$ExceptionThrown<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -626,6 +670,8 @@ class _$ExceptionThrown<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -647,6 +693,8 @@ class _$ExceptionThrown<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -671,6 +719,8 @@ class _$ExceptionThrown<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -704,6 +754,501 @@ abstract class ExceptionThrown<T> implements Failure<T> {
   dynamic get failedValue;
   String get message;
   $ExceptionThrownCopyWith<T, ExceptionThrown<T>> get copyWith;
+}
+
+abstract class $InvalidEmailCopyWith<T, $Res> {
+  factory $InvalidEmailCopyWith(
+          InvalidEmail<T> value, $Res Function(InvalidEmail<T>) then) =
+      _$InvalidEmailCopyWithImpl<T, $Res>;
+  $Res call({String failedValue, String message});
+}
+
+class _$InvalidEmailCopyWithImpl<T, $Res> extends _$FailureCopyWithImpl<T, $Res>
+    implements $InvalidEmailCopyWith<T, $Res> {
+  _$InvalidEmailCopyWithImpl(
+      InvalidEmail<T> _value, $Res Function(InvalidEmail<T>) _then)
+      : super(_value, (v) => _then(v as InvalidEmail<T>));
+
+  @override
+  InvalidEmail<T> get _value => super._value as InvalidEmail<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+    Object message = freezed,
+  }) {
+    return _then(InvalidEmail<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+      message: message == freezed ? _value.message : message as String,
+    ));
+  }
+}
+
+class _$InvalidEmail<T>
+    with DiagnosticableTreeMixin
+    implements InvalidEmail<T> {
+  const _$InvalidEmail({this.failedValue, @required this.message})
+      : assert(message != null);
+
+  @override
+  final String failedValue;
+  @override
+  final String message;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Failure<$T>.invalidEmail(failedValue: $failedValue, message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Failure<$T>.invalidEmail'))
+      ..add(DiagnosticsProperty('failedValue', failedValue))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidEmail<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failedValue) ^
+      const DeepCollectionEquality().hash(message);
+
+  @override
+  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
+      _$InvalidEmailCopyWithImpl<T, InvalidEmail<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result none(),
+    @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
+    @required Result invalidText(String failedValue, String message),
+    @required
+        Result invalidUniqueIdentifier(String failedValue, String message),
+    @required Result serverError(int failedValue, String message),
+    @required Result invalidBool(bool failedValue, String message),
+    @required Result invalidNumber(num failedValue, String message),
+    @required Result invalidPositiveNumber(num failedValue, String message),
+    @required
+        Result invalidGreaterThanZeroNumber(num failedValue, String message),
+    @required Result invalidRouteLink(T failedValue, String message),
+    @required Result invalidDateTime(DateTime failedValue, String message),
+    @required Result invalidWebUrl(String failedValue, String message),
+    @required Result invalidLatitude(num failedValue, String message),
+    @required Result invalidLongitude(num failedValue, String message),
+    @required Result invalidIntId(int failedValue, String message),
+    @required Result invalidNavigationRoute(T failedValue, String message),
+    @required Result invalidAccountNumber(T failedValue, String message),
+    @required Result invalidKennitala(T failedValue, String message),
+  }) {
+    assert(none != null);
+    assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidText != null);
+    assert(invalidUniqueIdentifier != null);
+    assert(serverError != null);
+    assert(invalidBool != null);
+    assert(invalidNumber != null);
+    assert(invalidPositiveNumber != null);
+    assert(invalidGreaterThanZeroNumber != null);
+    assert(invalidRouteLink != null);
+    assert(invalidDateTime != null);
+    assert(invalidWebUrl != null);
+    assert(invalidLatitude != null);
+    assert(invalidLongitude != null);
+    assert(invalidIntId != null);
+    assert(invalidNavigationRoute != null);
+    assert(invalidAccountNumber != null);
+    assert(invalidKennitala != null);
+    return invalidEmail(failedValue, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result none(),
+    Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
+    Result invalidText(String failedValue, String message),
+    Result invalidUniqueIdentifier(String failedValue, String message),
+    Result serverError(int failedValue, String message),
+    Result invalidBool(bool failedValue, String message),
+    Result invalidNumber(num failedValue, String message),
+    Result invalidPositiveNumber(num failedValue, String message),
+    Result invalidGreaterThanZeroNumber(num failedValue, String message),
+    Result invalidRouteLink(T failedValue, String message),
+    Result invalidDateTime(DateTime failedValue, String message),
+    Result invalidWebUrl(String failedValue, String message),
+    Result invalidLatitude(num failedValue, String message),
+    Result invalidLongitude(num failedValue, String message),
+    Result invalidIntId(int failedValue, String message),
+    Result invalidNavigationRoute(T failedValue, String message),
+    Result invalidAccountNumber(T failedValue, String message),
+    Result invalidKennitala(T failedValue, String message),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidEmail != null) {
+      return invalidEmail(failedValue, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result none(NoFailure<T> value),
+    @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
+    @required Result invalidText(InvalidText<T> value),
+    @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
+    @required Result serverError(ServerError<T> value),
+    @required Result invalidBool(InvalidBool<T> value),
+    @required Result invalidNumber(InvalidNumber<T> value),
+    @required Result invalidPositiveNumber(InvalidPositiveNumber<T> value),
+    @required
+        Result invalidGreaterThanZeroNumber(
+            InvalidGreaterThanZeroNumber<T> value),
+    @required Result invalidRouteLink(InvalidRouteLink<T> value),
+    @required Result invalidDateTime(InvalidDateTime<T> value),
+    @required Result invalidWebUrl(InvalidWebUrl<T> value),
+    @required Result invalidLatitude(InvalidLatitude<T> value),
+    @required Result invalidLongitude(InvalidLongitude<T> value),
+    @required Result invalidIntId(InvaliIntId<T> value),
+    @required Result invalidNavigationRoute(InvalidDeepLinkUri<T> value),
+    @required Result invalidAccountNumber(InvalidAccountNumber<T> value),
+    @required Result invalidKennitala(InvalidKennitala<T> value),
+  }) {
+    assert(none != null);
+    assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidText != null);
+    assert(invalidUniqueIdentifier != null);
+    assert(serverError != null);
+    assert(invalidBool != null);
+    assert(invalidNumber != null);
+    assert(invalidPositiveNumber != null);
+    assert(invalidGreaterThanZeroNumber != null);
+    assert(invalidRouteLink != null);
+    assert(invalidDateTime != null);
+    assert(invalidWebUrl != null);
+    assert(invalidLatitude != null);
+    assert(invalidLongitude != null);
+    assert(invalidIntId != null);
+    assert(invalidNavigationRoute != null);
+    assert(invalidAccountNumber != null);
+    assert(invalidKennitala != null);
+    return invalidEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result none(NoFailure<T> value),
+    Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
+    Result invalidText(InvalidText<T> value),
+    Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
+    Result serverError(ServerError<T> value),
+    Result invalidBool(InvalidBool<T> value),
+    Result invalidNumber(InvalidNumber<T> value),
+    Result invalidPositiveNumber(InvalidPositiveNumber<T> value),
+    Result invalidGreaterThanZeroNumber(InvalidGreaterThanZeroNumber<T> value),
+    Result invalidRouteLink(InvalidRouteLink<T> value),
+    Result invalidDateTime(InvalidDateTime<T> value),
+    Result invalidWebUrl(InvalidWebUrl<T> value),
+    Result invalidLatitude(InvalidLatitude<T> value),
+    Result invalidLongitude(InvalidLongitude<T> value),
+    Result invalidIntId(InvaliIntId<T> value),
+    Result invalidNavigationRoute(InvalidDeepLinkUri<T> value),
+    Result invalidAccountNumber(InvalidAccountNumber<T> value),
+    Result invalidKennitala(InvalidKennitala<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidEmail != null) {
+      return invalidEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidEmail<T> implements Failure<T> {
+  const factory InvalidEmail({String failedValue, @required String message}) =
+      _$InvalidEmail<T>;
+
+  String get failedValue;
+  String get message;
+  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
+}
+
+abstract class $InvalidPasswordCopyWith<T, $Res> {
+  factory $InvalidPasswordCopyWith(
+          InvalidPassword<T> value, $Res Function(InvalidPassword<T>) then) =
+      _$InvalidPasswordCopyWithImpl<T, $Res>;
+  $Res call({String failedValue, String message});
+}
+
+class _$InvalidPasswordCopyWithImpl<T, $Res>
+    extends _$FailureCopyWithImpl<T, $Res>
+    implements $InvalidPasswordCopyWith<T, $Res> {
+  _$InvalidPasswordCopyWithImpl(
+      InvalidPassword<T> _value, $Res Function(InvalidPassword<T>) _then)
+      : super(_value, (v) => _then(v as InvalidPassword<T>));
+
+  @override
+  InvalidPassword<T> get _value => super._value as InvalidPassword<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+    Object message = freezed,
+  }) {
+    return _then(InvalidPassword<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+      message: message == freezed ? _value.message : message as String,
+    ));
+  }
+}
+
+class _$InvalidPassword<T>
+    with DiagnosticableTreeMixin
+    implements InvalidPassword<T> {
+  const _$InvalidPassword({this.failedValue, @required this.message})
+      : assert(message != null);
+
+  @override
+  final String failedValue;
+  @override
+  final String message;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Failure<$T>.invalidPassword(failedValue: $failedValue, message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Failure<$T>.invalidPassword'))
+      ..add(DiagnosticsProperty('failedValue', failedValue))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidPassword<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failedValue) ^
+      const DeepCollectionEquality().hash(message);
+
+  @override
+  $InvalidPasswordCopyWith<T, InvalidPassword<T>> get copyWith =>
+      _$InvalidPasswordCopyWithImpl<T, InvalidPassword<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result none(),
+    @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
+    @required Result invalidText(String failedValue, String message),
+    @required
+        Result invalidUniqueIdentifier(String failedValue, String message),
+    @required Result serverError(int failedValue, String message),
+    @required Result invalidBool(bool failedValue, String message),
+    @required Result invalidNumber(num failedValue, String message),
+    @required Result invalidPositiveNumber(num failedValue, String message),
+    @required
+        Result invalidGreaterThanZeroNumber(num failedValue, String message),
+    @required Result invalidRouteLink(T failedValue, String message),
+    @required Result invalidDateTime(DateTime failedValue, String message),
+    @required Result invalidWebUrl(String failedValue, String message),
+    @required Result invalidLatitude(num failedValue, String message),
+    @required Result invalidLongitude(num failedValue, String message),
+    @required Result invalidIntId(int failedValue, String message),
+    @required Result invalidNavigationRoute(T failedValue, String message),
+    @required Result invalidAccountNumber(T failedValue, String message),
+    @required Result invalidKennitala(T failedValue, String message),
+  }) {
+    assert(none != null);
+    assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidText != null);
+    assert(invalidUniqueIdentifier != null);
+    assert(serverError != null);
+    assert(invalidBool != null);
+    assert(invalidNumber != null);
+    assert(invalidPositiveNumber != null);
+    assert(invalidGreaterThanZeroNumber != null);
+    assert(invalidRouteLink != null);
+    assert(invalidDateTime != null);
+    assert(invalidWebUrl != null);
+    assert(invalidLatitude != null);
+    assert(invalidLongitude != null);
+    assert(invalidIntId != null);
+    assert(invalidNavigationRoute != null);
+    assert(invalidAccountNumber != null);
+    assert(invalidKennitala != null);
+    return invalidPassword(failedValue, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result none(),
+    Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
+    Result invalidText(String failedValue, String message),
+    Result invalidUniqueIdentifier(String failedValue, String message),
+    Result serverError(int failedValue, String message),
+    Result invalidBool(bool failedValue, String message),
+    Result invalidNumber(num failedValue, String message),
+    Result invalidPositiveNumber(num failedValue, String message),
+    Result invalidGreaterThanZeroNumber(num failedValue, String message),
+    Result invalidRouteLink(T failedValue, String message),
+    Result invalidDateTime(DateTime failedValue, String message),
+    Result invalidWebUrl(String failedValue, String message),
+    Result invalidLatitude(num failedValue, String message),
+    Result invalidLongitude(num failedValue, String message),
+    Result invalidIntId(int failedValue, String message),
+    Result invalidNavigationRoute(T failedValue, String message),
+    Result invalidAccountNumber(T failedValue, String message),
+    Result invalidKennitala(T failedValue, String message),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidPassword != null) {
+      return invalidPassword(failedValue, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result none(NoFailure<T> value),
+    @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
+    @required Result invalidText(InvalidText<T> value),
+    @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
+    @required Result serverError(ServerError<T> value),
+    @required Result invalidBool(InvalidBool<T> value),
+    @required Result invalidNumber(InvalidNumber<T> value),
+    @required Result invalidPositiveNumber(InvalidPositiveNumber<T> value),
+    @required
+        Result invalidGreaterThanZeroNumber(
+            InvalidGreaterThanZeroNumber<T> value),
+    @required Result invalidRouteLink(InvalidRouteLink<T> value),
+    @required Result invalidDateTime(InvalidDateTime<T> value),
+    @required Result invalidWebUrl(InvalidWebUrl<T> value),
+    @required Result invalidLatitude(InvalidLatitude<T> value),
+    @required Result invalidLongitude(InvalidLongitude<T> value),
+    @required Result invalidIntId(InvaliIntId<T> value),
+    @required Result invalidNavigationRoute(InvalidDeepLinkUri<T> value),
+    @required Result invalidAccountNumber(InvalidAccountNumber<T> value),
+    @required Result invalidKennitala(InvalidKennitala<T> value),
+  }) {
+    assert(none != null);
+    assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidText != null);
+    assert(invalidUniqueIdentifier != null);
+    assert(serverError != null);
+    assert(invalidBool != null);
+    assert(invalidNumber != null);
+    assert(invalidPositiveNumber != null);
+    assert(invalidGreaterThanZeroNumber != null);
+    assert(invalidRouteLink != null);
+    assert(invalidDateTime != null);
+    assert(invalidWebUrl != null);
+    assert(invalidLatitude != null);
+    assert(invalidLongitude != null);
+    assert(invalidIntId != null);
+    assert(invalidNavigationRoute != null);
+    assert(invalidAccountNumber != null);
+    assert(invalidKennitala != null);
+    return invalidPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result none(NoFailure<T> value),
+    Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
+    Result invalidText(InvalidText<T> value),
+    Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
+    Result serverError(ServerError<T> value),
+    Result invalidBool(InvalidBool<T> value),
+    Result invalidNumber(InvalidNumber<T> value),
+    Result invalidPositiveNumber(InvalidPositiveNumber<T> value),
+    Result invalidGreaterThanZeroNumber(InvalidGreaterThanZeroNumber<T> value),
+    Result invalidRouteLink(InvalidRouteLink<T> value),
+    Result invalidDateTime(InvalidDateTime<T> value),
+    Result invalidWebUrl(InvalidWebUrl<T> value),
+    Result invalidLatitude(InvalidLatitude<T> value),
+    Result invalidLongitude(InvalidLongitude<T> value),
+    Result invalidIntId(InvaliIntId<T> value),
+    Result invalidNavigationRoute(InvalidDeepLinkUri<T> value),
+    Result invalidAccountNumber(InvalidAccountNumber<T> value),
+    Result invalidKennitala(InvalidKennitala<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidPassword != null) {
+      return invalidPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidPassword<T> implements Failure<T> {
+  const factory InvalidPassword(
+      {String failedValue, @required String message}) = _$InvalidPassword<T>;
+
+  String get failedValue;
+  String get message;
+  $InvalidPasswordCopyWith<T, InvalidPassword<T>> get copyWith;
 }
 
 abstract class $InvalidTextCopyWith<T, $Res> {
@@ -784,6 +1329,8 @@ class _$InvalidText<T> with DiagnosticableTreeMixin implements InvalidText<T> {
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -805,6 +1352,8 @@ class _$InvalidText<T> with DiagnosticableTreeMixin implements InvalidText<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -829,6 +1378,8 @@ class _$InvalidText<T> with DiagnosticableTreeMixin implements InvalidText<T> {
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -859,6 +1410,8 @@ class _$InvalidText<T> with DiagnosticableTreeMixin implements InvalidText<T> {
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -880,6 +1433,8 @@ class _$InvalidText<T> with DiagnosticableTreeMixin implements InvalidText<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -904,6 +1459,8 @@ class _$InvalidText<T> with DiagnosticableTreeMixin implements InvalidText<T> {
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -1023,6 +1580,8 @@ class _$InvalidUniqueIdentifier<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -1044,6 +1603,8 @@ class _$InvalidUniqueIdentifier<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1068,6 +1629,8 @@ class _$InvalidUniqueIdentifier<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -1098,6 +1661,8 @@ class _$InvalidUniqueIdentifier<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -1119,6 +1684,8 @@ class _$InvalidUniqueIdentifier<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1143,6 +1710,8 @@ class _$InvalidUniqueIdentifier<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -1257,6 +1826,8 @@ class _$ServerError<T> with DiagnosticableTreeMixin implements ServerError<T> {
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -1278,6 +1849,8 @@ class _$ServerError<T> with DiagnosticableTreeMixin implements ServerError<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1302,6 +1875,8 @@ class _$ServerError<T> with DiagnosticableTreeMixin implements ServerError<T> {
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -1332,6 +1907,8 @@ class _$ServerError<T> with DiagnosticableTreeMixin implements ServerError<T> {
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -1353,6 +1930,8 @@ class _$ServerError<T> with DiagnosticableTreeMixin implements ServerError<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1377,6 +1956,8 @@ class _$ServerError<T> with DiagnosticableTreeMixin implements ServerError<T> {
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -1490,6 +2071,8 @@ class _$InvalidBool<T> with DiagnosticableTreeMixin implements InvalidBool<T> {
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -1511,6 +2094,8 @@ class _$InvalidBool<T> with DiagnosticableTreeMixin implements InvalidBool<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1535,6 +2120,8 @@ class _$InvalidBool<T> with DiagnosticableTreeMixin implements InvalidBool<T> {
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -1565,6 +2152,8 @@ class _$InvalidBool<T> with DiagnosticableTreeMixin implements InvalidBool<T> {
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -1586,6 +2175,8 @@ class _$InvalidBool<T> with DiagnosticableTreeMixin implements InvalidBool<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1610,6 +2201,8 @@ class _$InvalidBool<T> with DiagnosticableTreeMixin implements InvalidBool<T> {
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -1726,6 +2319,8 @@ class _$InvalidNumber<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -1747,6 +2342,8 @@ class _$InvalidNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1771,6 +2368,8 @@ class _$InvalidNumber<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -1801,6 +2400,8 @@ class _$InvalidNumber<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -1822,6 +2423,8 @@ class _$InvalidNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -1846,6 +2449,8 @@ class _$InvalidNumber<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -1964,6 +2569,8 @@ class _$InvalidPositiveNumber<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -1985,6 +2592,8 @@ class _$InvalidPositiveNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2009,6 +2618,8 @@ class _$InvalidPositiveNumber<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -2039,6 +2650,8 @@ class _$InvalidPositiveNumber<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -2060,6 +2673,8 @@ class _$InvalidPositiveNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2084,6 +2699,8 @@ class _$InvalidPositiveNumber<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -2206,6 +2823,8 @@ class _$InvalidGreaterThanZeroNumber<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -2227,6 +2846,8 @@ class _$InvalidGreaterThanZeroNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2251,6 +2872,8 @@ class _$InvalidGreaterThanZeroNumber<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -2281,6 +2904,8 @@ class _$InvalidGreaterThanZeroNumber<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -2302,6 +2927,8 @@ class _$InvalidGreaterThanZeroNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2326,6 +2953,8 @@ class _$InvalidGreaterThanZeroNumber<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -2444,6 +3073,8 @@ class _$InvalidRouteLink<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -2465,6 +3096,8 @@ class _$InvalidRouteLink<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2489,6 +3122,8 @@ class _$InvalidRouteLink<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -2519,6 +3154,8 @@ class _$InvalidRouteLink<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -2540,6 +3177,8 @@ class _$InvalidRouteLink<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2564,6 +3203,8 @@ class _$InvalidRouteLink<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -2680,6 +3321,8 @@ class _$InvalidDateTime<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -2701,6 +3344,8 @@ class _$InvalidDateTime<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2725,6 +3370,8 @@ class _$InvalidDateTime<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -2755,6 +3402,8 @@ class _$InvalidDateTime<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -2776,6 +3425,8 @@ class _$InvalidDateTime<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2800,6 +3451,8 @@ class _$InvalidDateTime<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -2916,6 +3569,8 @@ class _$InvalidWebUrl<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -2937,6 +3592,8 @@ class _$InvalidWebUrl<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -2961,6 +3618,8 @@ class _$InvalidWebUrl<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -2991,6 +3650,8 @@ class _$InvalidWebUrl<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -3012,6 +3673,8 @@ class _$InvalidWebUrl<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3036,6 +3699,8 @@ class _$InvalidWebUrl<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -3152,6 +3817,8 @@ class _$InvalidLatitude<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -3173,6 +3840,8 @@ class _$InvalidLatitude<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3197,6 +3866,8 @@ class _$InvalidLatitude<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -3227,6 +3898,8 @@ class _$InvalidLatitude<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -3248,6 +3921,8 @@ class _$InvalidLatitude<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3272,6 +3947,8 @@ class _$InvalidLatitude<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -3388,6 +4065,8 @@ class _$InvalidLongitude<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -3409,6 +4088,8 @@ class _$InvalidLongitude<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3433,6 +4114,8 @@ class _$InvalidLongitude<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -3463,6 +4146,8 @@ class _$InvalidLongitude<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -3484,6 +4169,8 @@ class _$InvalidLongitude<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3508,6 +4195,8 @@ class _$InvalidLongitude<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -3621,6 +4310,8 @@ class _$InvaliIntId<T> with DiagnosticableTreeMixin implements InvaliIntId<T> {
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -3642,6 +4333,8 @@ class _$InvaliIntId<T> with DiagnosticableTreeMixin implements InvaliIntId<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3666,6 +4359,8 @@ class _$InvaliIntId<T> with DiagnosticableTreeMixin implements InvaliIntId<T> {
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -3696,6 +4391,8 @@ class _$InvaliIntId<T> with DiagnosticableTreeMixin implements InvaliIntId<T> {
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -3717,6 +4414,8 @@ class _$InvaliIntId<T> with DiagnosticableTreeMixin implements InvaliIntId<T> {
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3741,6 +4440,8 @@ class _$InvaliIntId<T> with DiagnosticableTreeMixin implements InvaliIntId<T> {
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -3858,6 +4559,8 @@ class _$InvalidDeepLinkUri<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -3879,6 +4582,8 @@ class _$InvalidDeepLinkUri<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3903,6 +4608,8 @@ class _$InvalidDeepLinkUri<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -3933,6 +4640,8 @@ class _$InvalidDeepLinkUri<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -3954,6 +4663,8 @@ class _$InvalidDeepLinkUri<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -3978,6 +4689,8 @@ class _$InvalidDeepLinkUri<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -4095,6 +4808,8 @@ class _$InvalidAccountNumber<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -4116,6 +4831,8 @@ class _$InvalidAccountNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -4140,6 +4857,8 @@ class _$InvalidAccountNumber<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -4170,6 +4889,8 @@ class _$InvalidAccountNumber<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -4191,6 +4912,8 @@ class _$InvalidAccountNumber<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -4215,6 +4938,8 @@ class _$InvalidAccountNumber<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),
@@ -4331,6 +5056,8 @@ class _$InvalidKennitala<T>
   Result when<Result extends Object>({
     @required Result none(),
     @required Result exceptionThrown(dynamic failedValue, String message),
+    @required Result invalidEmail(String failedValue, String message),
+    @required Result invalidPassword(String failedValue, String message),
     @required Result invalidText(String failedValue, String message),
     @required
         Result invalidUniqueIdentifier(String failedValue, String message),
@@ -4352,6 +5079,8 @@ class _$InvalidKennitala<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -4376,6 +5105,8 @@ class _$InvalidKennitala<T>
   Result maybeWhen<Result extends Object>({
     Result none(),
     Result exceptionThrown(dynamic failedValue, String message),
+    Result invalidEmail(String failedValue, String message),
+    Result invalidPassword(String failedValue, String message),
     Result invalidText(String failedValue, String message),
     Result invalidUniqueIdentifier(String failedValue, String message),
     Result serverError(int failedValue, String message),
@@ -4406,6 +5137,8 @@ class _$InvalidKennitala<T>
   Result map<Result extends Object>({
     @required Result none(NoFailure<T> value),
     @required Result exceptionThrown(ExceptionThrown<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidText(InvalidText<T> value),
     @required Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     @required Result serverError(ServerError<T> value),
@@ -4427,6 +5160,8 @@ class _$InvalidKennitala<T>
   }) {
     assert(none != null);
     assert(exceptionThrown != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
     assert(invalidText != null);
     assert(invalidUniqueIdentifier != null);
     assert(serverError != null);
@@ -4451,6 +5186,8 @@ class _$InvalidKennitala<T>
   Result maybeMap<Result extends Object>({
     Result none(NoFailure<T> value),
     Result exceptionThrown(ExceptionThrown<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
     Result invalidText(InvalidText<T> value),
     Result invalidUniqueIdentifier(InvalidUniqueIdentifier<T> value),
     Result serverError(ServerError<T> value),

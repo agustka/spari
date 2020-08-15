@@ -11,10 +11,7 @@ class PageRoot extends StatelessWidget {
     return SafeArea(
       child: SpariTheme(
         child: Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: child,
-          ),
+          body: child,
         ),
       ),
     );

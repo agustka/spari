@@ -12,7 +12,7 @@ void main() {
   };
   runZoned(() {
     setup(environment: BuildEnvironment.test);
-    runApp(const App(SpariRouter.overviewPage));
+    runApp(const App(SpariRouter.splashPage));
   }, onError: (dynamic error, StackTrace stackTrace) {
     err(error, trace: stackTrace);
   });

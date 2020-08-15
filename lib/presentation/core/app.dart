@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:spari/application/core/analytics/analytics_bloc.dart';
-import 'package:spari/application/core/auth/auth_bloc.dart';
 import 'package:spari/application/core/language/language_bloc.dart';
 import 'package:spari/application/core/navigation/navigation_bloc.dart';
 import 'package:spari/domain/core/navigation/router.gr.dart';
@@ -32,10 +31,6 @@ class App extends StatelessWidget {
           create: (context) => getIt<LanguageBloc>()..add(const LanguageEvent.loadUserLanguage()),
         ),
         BlocProvider(
-          lazy: false,
-          create: (context) => getIt<AuthBloc>(),
-        ),
-        BlocProvider(
           create: (context) => getIt<AnalyticsBloc>(),
         ),
       ],
@@ -55,9 +50,7 @@ class App extends StatelessWidget {
         child: BlocBuilder<LanguageBloc, LanguageState>(
           builder: (context, state) {
             return state.map(
-              initial: (state) => Container(
-                color: Colors.pinkAccent,
-              ),
+              initial: (state) => _getContent(),
               loadLanguage: (state) => _loadAppWithLocale(state.locale),
             );
           },
@@ -91,7 +84,8 @@ class App extends StatelessWidget {
     if (state.data.popCurrent) {
       ExtendedNavigator.named(routerName).pop();
     }
-    final dynamic argument = state.data.arguments.map( // ignore: unused_local_variable
+    final dynamic argument = state.data.arguments.map(
+      // ignore: unused_local_variable
       none: (_) => null,
       list: (list) => list.arguments,
       value: (value) => value.argument,
@@ -110,5 +104,16 @@ class App extends StatelessWidget {
         settings: (_) {
           ExtendedNavigator.named(routerName).pushSettingsPage();
         });
+  }
+
+  Widget _getContent() {
+    return Material(
+      child: Ink(
+        color: SpariTheme.backgroundColor,
+        child: Center(
+          child: Image.asset("res/images/spari_logo.webp", key: const Key("main_icon"), width: 100),
+        ),
+      ),
+    );
   }
 }

@@ -20,8 +20,8 @@ class LoadingBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      highlightColor: highlightColor ?? SpariTheme.of(context).grayDark,
-      baseColor: baseColor ?? SpariTheme.of(context).grayMedium,
+      highlightColor: highlightColor ?? SpariTheme.grayDark,
+      baseColor: baseColor ?? SpariTheme.grayMedium,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SpariTheme.of(context).borderRadius)),
         elevation: 0,

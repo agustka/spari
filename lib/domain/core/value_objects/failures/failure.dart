@@ -15,6 +15,16 @@ abstract class Failure<T> {
     @required String message,
   }) = ExceptionThrown<T>;
 
+  const factory Failure.invalidEmail({
+    String failedValue,
+    @required String message,
+  }) = InvalidEmail<T>;
+
+  const factory Failure.invalidPassword({
+    String failedValue,
+    @required String message,
+  }) = InvalidPassword<T>;
+
   const factory Failure.invalidText({
     String failedValue,
     @required String message,

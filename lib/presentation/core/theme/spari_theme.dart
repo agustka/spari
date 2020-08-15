@@ -8,54 +8,44 @@ class SpariTheme extends InheritedWidget {
 
   ThemeData get theme {
     return ThemeData(
-      primarySwatch: _primaryColor,
+      primarySwatch: primaryColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       brightness: Brightness.light,
-      primaryColor: _primaryColor,
-      accentColor: _secondaryColor,
-      splashColor: Platform.isIOS ? Colors.transparent : _secondaryColor,
-      scaffoldBackgroundColor: white,
+      primaryColor: primaryColor,
+      accentColor: secondaryColor,
+      splashColor: Platform.isIOS ? Colors.transparent : secondaryColor,
+      scaffoldBackgroundColor: backgroundColor,
       fontFamily: "norms",
       textTheme: TextTheme(
-        headline1: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold, color: _textColor),
-        headline2: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold, color: _textColor),
-        headline3: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold, color: _textColor),
-        headline4: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: _textColor),
-        headline5: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: _textColor),
-        headline6: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500, color: _textColor),
-        subtitle1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500, color: _textColor),
-        subtitle2: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400, color: _textColor),
-        bodyText1: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: _textColor),
-        bodyText2: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: _textColor),
+        headline1: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold, color: textColor),
+        headline2: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold, color: textColor),
+        headline3: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold, color: textColor),
+        headline4: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: textColor),
+        headline5: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: textColor),
+        headline6: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500, color: textColor),
+        subtitle1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500, color: textColor),
+        subtitle2: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400, color: textColor),
+        bodyText1: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: textColor),
+        bodyText2: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: textColor),
       ).apply(
-        bodyColor: _textColor,
-        displayColor: _textColor,
+        bodyColor: textColor,
+        displayColor: textColor,
       ),
     );
   }
 
-  static final MaterialColor _primaryColor = toMaterialColor(const Color(0xffdc1e35));
-  static final MaterialColor _secondaryColor = toMaterialColor(const Color(0xff009cbd));
-  static final MaterialColor _accentColor = toMaterialColor(const Color(0xfffcc036));
-  static final MaterialColor _tertiaryColor = toMaterialColor(const Color(0xff14ac8a));
-  static final MaterialColor _textColor = toMaterialColor(const Color(0xff4f4f4f));
-  static final MaterialColor _grayLight = toMaterialColor(const Color(0xfffafafa));
-  static final MaterialColor _grayMedium = toMaterialColor(const Color(0xfff0f0f0));
-  static final MaterialColor _grayDark = toMaterialColor(const Color(0xffd1d1d1));
-  static final MaterialColor _white = toMaterialColor(const Color(0xffffffff));
+  static final MaterialColor primaryColor = toMaterialColor(const Color(0xfff3c623));
+  static final MaterialColor secondaryColor = toMaterialColor(const Color(0xff127681));
+  static final MaterialColor accentColor = toMaterialColor(const Color(0xff127681));
+  static final MaterialColor tertiaryColor = toMaterialColor(const Color(0xff10375c));
+  static final MaterialColor textColor = toMaterialColor(const Color(0xff4f4f4f));
+  static final MaterialColor grayLight = toMaterialColor(const Color(0xfffafafa));
+  static final MaterialColor grayMedium = toMaterialColor(const Color(0xfff0f0f0));
+  static final MaterialColor grayDark = toMaterialColor(const Color(0xffd1d1d1));
+  static final MaterialColor backgroundColor = toMaterialColor(const Color(0xfff4f6ff));
 
-  MaterialColor get primaryColor => _primaryColor;
-  MaterialColor get accentColor => _accentColor;
-  MaterialColor get secondaryColor => _secondaryColor;
-  MaterialColor get tertiaryColor => _tertiaryColor;
-  MaterialColor get textColor => _textColor;
-  MaterialColor get white => _white;
-  MaterialColor get grayLight => _grayLight;
-  MaterialColor get grayMedium => _grayMedium;
-  MaterialColor get grayDark => _grayDark;
-
-  double get cardElevation => 8;
-  double get borderRadius => 12;
+  double get cardElevation => 12;
+  double get borderRadius => 20;
 
   TextStyle get body11pt => theme.textTheme.bodyText1.copyWith(
     fontSize: 11,

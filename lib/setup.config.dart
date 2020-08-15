@@ -5,7 +5,6 @@
 // **************************************************************************
 
 import 'package:spari/application/core/analytics/analytics_bloc.dart';
-import 'package:spari/application/core/auth/auth_bloc.dart';
 import 'package:spari/infrastructure/core/auth/auth_manager.dart';
 import 'package:spari/infrastructure/core/service/interceptors/auth_request_interceptor.dart';
 import 'package:spari/infrastructure/core/service/auth/auth_service.dart';
@@ -19,6 +18,7 @@ import 'package:http/io_client.dart';
 import 'package:spari/application/core/language/language_bloc.dart';
 import 'package:spari/infrastructure/loans/repository/loans_repository.dart';
 import 'package:spari/infrastructure/core/service/interceptors/logging_interceptor.dart';
+import 'package:spari/application/login/login_bloc.dart';
 import 'package:spari/application/core/navigation/navigation_bloc.dart';
 import 'package:spari/application/overview/overview_bloc.dart';
 
@@ -39,9 +39,9 @@ GetIt $initGetIt(
   gh.factory<IOClient>(() => baseServiceModule.ioClient);
   gh.factory<LanguageBloc>(() => LanguageBloc());
   gh.lazySingleton<LoggingInterceptor>(() => LoggingInterceptor());
+  gh.factory<LoginBloc>(() => LoginBloc());
   gh.lazySingleton<NavigationBloc>(() => NavigationBloc());
   gh.factory<OverviewBloc>(() => OverviewBloc(get<ILoansRepository>()));
-  gh.lazySingleton<AuthBloc>(() => AuthBloc(get<IAuthManager>()));
   gh.lazySingleton<AuthRequestInterceptor>(
       () => AuthRequestInterceptor(get<IAuthManager>()));
   return get;
