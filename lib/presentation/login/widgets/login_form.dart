@@ -57,7 +57,10 @@ class LoginForm extends StatelessWidget {
               offset: const Offset(0, -30),
               child: Column(
                 children: [
-                  Image.asset("res/images/spari_logo.webp", width: 70, height: 70,)
+                  Hero(
+                    tag: "login_icon",
+                    child: Image.asset("res/images/spari_logo.webp", width: 70, height: 70)
+                  ),
                 ],
               ),
             ),

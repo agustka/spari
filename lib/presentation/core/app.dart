@@ -8,6 +8,7 @@ import 'package:spari/application/core/language/language_bloc.dart';
 import 'package:spari/application/core/navigation/navigation_bloc.dart';
 import 'package:spari/domain/core/navigation/router.gr.dart';
 import 'package:spari/presentation/core/localization/i18n.dart';
+import 'package:spari/presentation/core/splash_preload.dart';
 import 'package:spari/presentation/core/theme/spari_theme.dart';
 import 'package:spari/setup.dart';
 
@@ -50,7 +51,7 @@ class App extends StatelessWidget {
         child: BlocBuilder<LanguageBloc, LanguageState>(
           builder: (context, state) {
             return state.map(
-              initial: (state) => _getContent(),
+              initial: (state) => _getSplash(),
               loadLanguage: (state) => _loadAppWithLocale(state.locale),
             );
           },
@@ -91,29 +92,39 @@ class App extends StatelessWidget {
       value: (value) => value.argument,
     );
     state.data.route.map(
-        splash: (_) {},
-        login: (_) {
-          ExtendedNavigator.named(routerName).pushLoginPage();
-        },
-        overview: (_) {
-          ExtendedNavigator.named(routerName).pushOverviewPage();
-        },
-        loanDetails: (_) {
-          ExtendedNavigator.named(routerName).pushLoanDetailsPage();
-        },
-        settings: (_) {
-          ExtendedNavigator.named(routerName).pushSettingsPage();
-        });
+      splash: (_) {},
+      login: (_) {
+        ExtendedNavigator.named(routerName).pushLoginPage();
+      },
+      overview: (_) {
+        ExtendedNavigator.named(routerName).pushOverviewPage();
+      },
+      loanDetails: (_) {
+        ExtendedNavigator.named(routerName).pushLoanDetailsPage();
+      },
+      settings: (_) {
+        ExtendedNavigator.named(routerName).pushSettingsPage();
+      },
+    );
   }
 
-  Widget _getContent() {
-    return Material(
-      child: Ink(
-        color: SpariTheme.backgroundColor,
-        child: Center(
-          child: Image.asset("res/images/spari_logo.webp", key: const Key("main_icon"), width: 100),
-        ),
-      ),
+  Widget _getSplash() {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: const SpariTheme().theme,
+      builder: (context, widget) {
+        return Scaffold(
+          body: SafeArea(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SplashPreload(),
+                Image.asset("res/images/spari_logo.webp", width: 90, height: 90),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
