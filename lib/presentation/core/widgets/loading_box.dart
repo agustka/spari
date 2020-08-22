@@ -23,7 +23,7 @@ class LoadingBox extends StatelessWidget {
       highlightColor: highlightColor ?? SpariTheme.grayDark,
       baseColor: baseColor ?? SpariTheme.grayMedium,
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SpariTheme.of(context).borderRadius)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SpariTheme.borderRadius)),
         elevation: 0,
         child: SizedBox(
           height: height,

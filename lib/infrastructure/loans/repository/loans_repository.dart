@@ -12,7 +12,7 @@ import 'package:spari/domain/loans/i_loans_repository.dart';
 class LoansRepository implements ILoansRepository {
   @override
   StreamSubscription loans({@required Function(Payload<List<Loan>> payload) listener, bool forceGet = false}) {
-    return Firestore.instance.collection("loans").snapshots().listen((event) {
+    return FirebaseFirestore.instance.collection("loans").snapshots().listen((event) {
       Logger().e(event);
     });
   }

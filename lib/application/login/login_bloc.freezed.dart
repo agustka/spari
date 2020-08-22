@@ -18,6 +18,13 @@ class _$LoginEventTearOff {
   }
 
 // ignore: unused_element
+  InitialAuthResult initialAuthResult({@required bool loggedIn}) {
+    return InitialAuthResult(
+      loggedIn: loggedIn,
+    );
+  }
+
+// ignore: unused_element
   Login login(
       {@required EmailValueObject email,
       @required PasswordValueObject password}) {
@@ -35,23 +42,27 @@ mixin _$LoginEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result checkLoginStatus(),
+    @required Result initialAuthResult(bool loggedIn),
     @required
         Result login(EmailValueObject email, PasswordValueObject password),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result checkLoginStatus(),
+    Result initialAuthResult(bool loggedIn),
     Result login(EmailValueObject email, PasswordValueObject password),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result checkLoginStatus(CheckLoginStatus value),
+    @required Result initialAuthResult(InitialAuthResult value),
     @required Result login(Login value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result checkLoginStatus(CheckLoginStatus value),
+    Result initialAuthResult(InitialAuthResult value),
     Result login(Login value),
     @required Result orElse(),
   });
@@ -108,10 +119,12 @@ class _$CheckLoginStatus implements CheckLoginStatus {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result checkLoginStatus(),
+    @required Result initialAuthResult(bool loggedIn),
     @required
         Result login(EmailValueObject email, PasswordValueObject password),
   }) {
     assert(checkLoginStatus != null);
+    assert(initialAuthResult != null);
     assert(login != null);
     return checkLoginStatus();
   }
@@ -120,6 +133,7 @@ class _$CheckLoginStatus implements CheckLoginStatus {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result checkLoginStatus(),
+    Result initialAuthResult(bool loggedIn),
     Result login(EmailValueObject email, PasswordValueObject password),
     @required Result orElse(),
   }) {
@@ -134,9 +148,11 @@ class _$CheckLoginStatus implements CheckLoginStatus {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result checkLoginStatus(CheckLoginStatus value),
+    @required Result initialAuthResult(InitialAuthResult value),
     @required Result login(Login value),
   }) {
     assert(checkLoginStatus != null);
+    assert(initialAuthResult != null);
     assert(login != null);
     return checkLoginStatus(this);
   }
@@ -145,6 +161,7 @@ class _$CheckLoginStatus implements CheckLoginStatus {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result checkLoginStatus(CheckLoginStatus value),
+    Result initialAuthResult(InitialAuthResult value),
     Result login(Login value),
     @required Result orElse(),
   }) {
@@ -158,6 +175,128 @@ class _$CheckLoginStatus implements CheckLoginStatus {
 
 abstract class CheckLoginStatus implements LoginEvent {
   const factory CheckLoginStatus() = _$CheckLoginStatus;
+}
+
+abstract class $InitialAuthResultCopyWith<$Res> {
+  factory $InitialAuthResultCopyWith(
+          InitialAuthResult value, $Res Function(InitialAuthResult) then) =
+      _$InitialAuthResultCopyWithImpl<$Res>;
+  $Res call({bool loggedIn});
+}
+
+class _$InitialAuthResultCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res>
+    implements $InitialAuthResultCopyWith<$Res> {
+  _$InitialAuthResultCopyWithImpl(
+      InitialAuthResult _value, $Res Function(InitialAuthResult) _then)
+      : super(_value, (v) => _then(v as InitialAuthResult));
+
+  @override
+  InitialAuthResult get _value => super._value as InitialAuthResult;
+
+  @override
+  $Res call({
+    Object loggedIn = freezed,
+  }) {
+    return _then(InitialAuthResult(
+      loggedIn: loggedIn == freezed ? _value.loggedIn : loggedIn as bool,
+    ));
+  }
+}
+
+class _$InitialAuthResult implements InitialAuthResult {
+  const _$InitialAuthResult({@required this.loggedIn})
+      : assert(loggedIn != null);
+
+  @override
+  final bool loggedIn;
+
+  @override
+  String toString() {
+    return 'LoginEvent.initialAuthResult(loggedIn: $loggedIn)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InitialAuthResult &&
+            (identical(other.loggedIn, loggedIn) ||
+                const DeepCollectionEquality()
+                    .equals(other.loggedIn, loggedIn)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(loggedIn);
+
+  @override
+  $InitialAuthResultCopyWith<InitialAuthResult> get copyWith =>
+      _$InitialAuthResultCopyWithImpl<InitialAuthResult>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result checkLoginStatus(),
+    @required Result initialAuthResult(bool loggedIn),
+    @required
+        Result login(EmailValueObject email, PasswordValueObject password),
+  }) {
+    assert(checkLoginStatus != null);
+    assert(initialAuthResult != null);
+    assert(login != null);
+    return initialAuthResult(loggedIn);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result checkLoginStatus(),
+    Result initialAuthResult(bool loggedIn),
+    Result login(EmailValueObject email, PasswordValueObject password),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (initialAuthResult != null) {
+      return initialAuthResult(loggedIn);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result checkLoginStatus(CheckLoginStatus value),
+    @required Result initialAuthResult(InitialAuthResult value),
+    @required Result login(Login value),
+  }) {
+    assert(checkLoginStatus != null);
+    assert(initialAuthResult != null);
+    assert(login != null);
+    return initialAuthResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result checkLoginStatus(CheckLoginStatus value),
+    Result initialAuthResult(InitialAuthResult value),
+    Result login(Login value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (initialAuthResult != null) {
+      return initialAuthResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitialAuthResult implements LoginEvent {
+  const factory InitialAuthResult({@required bool loggedIn}) =
+      _$InitialAuthResult;
+
+  bool get loggedIn;
+  $InitialAuthResultCopyWith<InitialAuthResult> get copyWith;
 }
 
 abstract class $LoginCopyWith<$Res> {
@@ -228,10 +367,12 @@ class _$Login implements Login {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result checkLoginStatus(),
+    @required Result initialAuthResult(bool loggedIn),
     @required
         Result login(EmailValueObject email, PasswordValueObject password),
   }) {
     assert(checkLoginStatus != null);
+    assert(initialAuthResult != null);
     assert(login != null);
     return login(email, password);
   }
@@ -240,6 +381,7 @@ class _$Login implements Login {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result checkLoginStatus(),
+    Result initialAuthResult(bool loggedIn),
     Result login(EmailValueObject email, PasswordValueObject password),
     @required Result orElse(),
   }) {
@@ -254,9 +396,11 @@ class _$Login implements Login {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result checkLoginStatus(CheckLoginStatus value),
+    @required Result initialAuthResult(InitialAuthResult value),
     @required Result login(Login value),
   }) {
     assert(checkLoginStatus != null);
+    assert(initialAuthResult != null);
     assert(login != null);
     return login(this);
   }
@@ -265,6 +409,7 @@ class _$Login implements Login {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result checkLoginStatus(CheckLoginStatus value),
+    Result initialAuthResult(InitialAuthResult value),
     Result login(Login value),
     @required Result orElse(),
   }) {
@@ -290,6 +435,13 @@ class _$LoginStateTearOff {
   const _$LoginStateTearOff();
 
 // ignore: unused_element
+  Initial initial({@required LoginStateData data}) {
+    return Initial(
+      data: data,
+    );
+  }
+
+// ignore: unused_element
   Loading loading({@required LoginStateData data}) {
     return Loading(
       data: data,
@@ -297,15 +449,8 @@ class _$LoginStateTearOff {
   }
 
 // ignore: unused_element
-  Unauthorized unauthorized({@required LoginStateData data}) {
-    return Unauthorized(
-      data: data,
-    );
-  }
-
-// ignore: unused_element
-  Authorized authorized({@required LoginStateData data}) {
-    return Authorized(
+  Loaded loaded({@required LoginStateData data}) {
+    return Loaded(
       data: data,
     );
   }
@@ -319,28 +464,28 @@ mixin _$LoginState {
 
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result initial(LoginStateData data),
     @required Result loading(LoginStateData data),
-    @required Result unauthorized(LoginStateData data),
-    @required Result authorized(LoginStateData data),
+    @required Result loaded(LoginStateData data),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result initial(LoginStateData data),
     Result loading(LoginStateData data),
-    Result unauthorized(LoginStateData data),
-    Result authorized(LoginStateData data),
+    Result loaded(LoginStateData data),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result initial(Initial value),
     @required Result loading(Loading value),
-    @required Result unauthorized(Unauthorized value),
-    @required Result authorized(Authorized value),
+    @required Result loaded(Loaded value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result initial(Initial value),
     Result loading(Loading value),
-    Result unauthorized(Unauthorized value),
-    Result authorized(Authorized value),
+    Result loaded(Loaded value),
     @required Result orElse(),
   });
 
@@ -369,6 +514,124 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       data: data == freezed ? _value.data : data as LoginStateData,
     ));
   }
+}
+
+abstract class $InitialCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory $InitialCopyWith(Initial value, $Res Function(Initial) then) =
+      _$InitialCopyWithImpl<$Res>;
+  @override
+  $Res call({LoginStateData data});
+}
+
+class _$InitialCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+    implements $InitialCopyWith<$Res> {
+  _$InitialCopyWithImpl(Initial _value, $Res Function(Initial) _then)
+      : super(_value, (v) => _then(v as Initial));
+
+  @override
+  Initial get _value => super._value as Initial;
+
+  @override
+  $Res call({
+    Object data = freezed,
+  }) {
+    return _then(Initial(
+      data: data == freezed ? _value.data : data as LoginStateData,
+    ));
+  }
+}
+
+class _$Initial implements Initial {
+  const _$Initial({@required this.data}) : assert(data != null);
+
+  @override
+  final LoginStateData data;
+
+  @override
+  String toString() {
+    return 'LoginState.initial(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Initial &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @override
+  $InitialCopyWith<Initial> get copyWith =>
+      _$InitialCopyWithImpl<Initial>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(LoginStateData data),
+    @required Result loading(LoginStateData data),
+    @required Result loaded(LoginStateData data),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    return initial(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(LoginStateData data),
+    Result loading(LoginStateData data),
+    Result loaded(LoginStateData data),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (initial != null) {
+      return initial(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(Initial value),
+    @required Result loading(Loading value),
+    @required Result loaded(Loaded value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(Initial value),
+    Result loading(Loading value),
+    Result loaded(Loaded value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Initial implements LoginState {
+  const factory Initial({@required LoginStateData data}) = _$Initial;
+
+  @override
+  LoginStateData get data;
+  @override
+  $InitialCopyWith<Initial> get copyWith;
 }
 
 abstract class $LoadingCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
@@ -426,22 +689,22 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result initial(LoginStateData data),
     @required Result loading(LoginStateData data),
-    @required Result unauthorized(LoginStateData data),
-    @required Result authorized(LoginStateData data),
+    @required Result loaded(LoginStateData data),
   }) {
+    assert(initial != null);
     assert(loading != null);
-    assert(unauthorized != null);
-    assert(authorized != null);
+    assert(loaded != null);
     return loading(data);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result initial(LoginStateData data),
     Result loading(LoginStateData data),
-    Result unauthorized(LoginStateData data),
-    Result authorized(LoginStateData data),
+    Result loaded(LoginStateData data),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -454,22 +717,22 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result initial(Initial value),
     @required Result loading(Loading value),
-    @required Result unauthorized(Unauthorized value),
-    @required Result authorized(Authorized value),
+    @required Result loaded(Loaded value),
   }) {
+    assert(initial != null);
     assert(loading != null);
-    assert(unauthorized != null);
-    assert(authorized != null);
+    assert(loaded != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result initial(Initial value),
     Result loading(Loading value),
-    Result unauthorized(Unauthorized value),
-    Result authorized(Authorized value),
+    Result loaded(Loaded value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -489,49 +752,46 @@ abstract class Loading implements LoginState {
   $LoadingCopyWith<Loading> get copyWith;
 }
 
-abstract class $UnauthorizedCopyWith<$Res>
-    implements $LoginStateCopyWith<$Res> {
-  factory $UnauthorizedCopyWith(
-          Unauthorized value, $Res Function(Unauthorized) then) =
-      _$UnauthorizedCopyWithImpl<$Res>;
+abstract class $LoadedCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
+      _$LoadedCopyWithImpl<$Res>;
   @override
   $Res call({LoginStateData data});
 }
 
-class _$UnauthorizedCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
-    implements $UnauthorizedCopyWith<$Res> {
-  _$UnauthorizedCopyWithImpl(
-      Unauthorized _value, $Res Function(Unauthorized) _then)
-      : super(_value, (v) => _then(v as Unauthorized));
+class _$LoadedCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+    implements $LoadedCopyWith<$Res> {
+  _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
+      : super(_value, (v) => _then(v as Loaded));
 
   @override
-  Unauthorized get _value => super._value as Unauthorized;
+  Loaded get _value => super._value as Loaded;
 
   @override
   $Res call({
     Object data = freezed,
   }) {
-    return _then(Unauthorized(
+    return _then(Loaded(
       data: data == freezed ? _value.data : data as LoginStateData,
     ));
   }
 }
 
-class _$Unauthorized implements Unauthorized {
-  const _$Unauthorized({@required this.data}) : assert(data != null);
+class _$Loaded implements Loaded {
+  const _$Loaded({@required this.data}) : assert(data != null);
 
   @override
   final LoginStateData data;
 
   @override
   String toString() {
-    return 'LoginState.unauthorized(data: $data)';
+    return 'LoginState.loaded(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Unauthorized &&
+        (other is Loaded &&
             (identical(other.data, data) ||
                 const DeepCollectionEquality().equals(other.data, data)));
   }
@@ -541,33 +801,33 @@ class _$Unauthorized implements Unauthorized {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
 
   @override
-  $UnauthorizedCopyWith<Unauthorized> get copyWith =>
-      _$UnauthorizedCopyWithImpl<Unauthorized>(this, _$identity);
+  $LoadedCopyWith<Loaded> get copyWith =>
+      _$LoadedCopyWithImpl<Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result initial(LoginStateData data),
     @required Result loading(LoginStateData data),
-    @required Result unauthorized(LoginStateData data),
-    @required Result authorized(LoginStateData data),
+    @required Result loaded(LoginStateData data),
   }) {
+    assert(initial != null);
     assert(loading != null);
-    assert(unauthorized != null);
-    assert(authorized != null);
-    return unauthorized(data);
+    assert(loaded != null);
+    return loaded(data);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result initial(LoginStateData data),
     Result loading(LoginStateData data),
-    Result unauthorized(LoginStateData data),
-    Result authorized(LoginStateData data),
+    Result loaded(LoginStateData data),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (unauthorized != null) {
-      return unauthorized(data);
+    if (loaded != null) {
+      return loaded(data);
     }
     return orElse();
   }
@@ -575,156 +835,37 @@ class _$Unauthorized implements Unauthorized {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result initial(Initial value),
     @required Result loading(Loading value),
-    @required Result unauthorized(Unauthorized value),
-    @required Result authorized(Authorized value),
+    @required Result loaded(Loaded value),
   }) {
+    assert(initial != null);
     assert(loading != null);
-    assert(unauthorized != null);
-    assert(authorized != null);
-    return unauthorized(this);
+    assert(loaded != null);
+    return loaded(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result initial(Initial value),
     Result loading(Loading value),
-    Result unauthorized(Unauthorized value),
-    Result authorized(Authorized value),
+    Result loaded(Loaded value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (unauthorized != null) {
-      return unauthorized(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
 }
 
-abstract class Unauthorized implements LoginState {
-  const factory Unauthorized({@required LoginStateData data}) = _$Unauthorized;
+abstract class Loaded implements LoginState {
+  const factory Loaded({@required LoginStateData data}) = _$Loaded;
 
   @override
   LoginStateData get data;
   @override
-  $UnauthorizedCopyWith<Unauthorized> get copyWith;
-}
-
-abstract class $AuthorizedCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
-  factory $AuthorizedCopyWith(
-          Authorized value, $Res Function(Authorized) then) =
-      _$AuthorizedCopyWithImpl<$Res>;
-  @override
-  $Res call({LoginStateData data});
-}
-
-class _$AuthorizedCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
-    implements $AuthorizedCopyWith<$Res> {
-  _$AuthorizedCopyWithImpl(Authorized _value, $Res Function(Authorized) _then)
-      : super(_value, (v) => _then(v as Authorized));
-
-  @override
-  Authorized get _value => super._value as Authorized;
-
-  @override
-  $Res call({
-    Object data = freezed,
-  }) {
-    return _then(Authorized(
-      data: data == freezed ? _value.data : data as LoginStateData,
-    ));
-  }
-}
-
-class _$Authorized implements Authorized {
-  const _$Authorized({@required this.data}) : assert(data != null);
-
-  @override
-  final LoginStateData data;
-
-  @override
-  String toString() {
-    return 'LoginState.authorized(data: $data)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is Authorized &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
-
-  @override
-  $AuthorizedCopyWith<Authorized> get copyWith =>
-      _$AuthorizedCopyWithImpl<Authorized>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result loading(LoginStateData data),
-    @required Result unauthorized(LoginStateData data),
-    @required Result authorized(LoginStateData data),
-  }) {
-    assert(loading != null);
-    assert(unauthorized != null);
-    assert(authorized != null);
-    return authorized(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result loading(LoginStateData data),
-    Result unauthorized(LoginStateData data),
-    Result authorized(LoginStateData data),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authorized != null) {
-      return authorized(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result loading(Loading value),
-    @required Result unauthorized(Unauthorized value),
-    @required Result authorized(Authorized value),
-  }) {
-    assert(loading != null);
-    assert(unauthorized != null);
-    assert(authorized != null);
-    return authorized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result loading(Loading value),
-    Result unauthorized(Unauthorized value),
-    Result authorized(Authorized value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authorized != null) {
-      return authorized(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Authorized implements LoginState {
-  const factory Authorized({@required LoginStateData data}) = _$Authorized;
-
-  @override
-  LoginStateData get data;
-  @override
-  $AuthorizedCopyWith<Authorized> get copyWith;
+  $LoadedCopyWith<Loaded> get copyWith;
 }

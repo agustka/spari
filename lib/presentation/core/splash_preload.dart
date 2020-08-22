@@ -18,10 +18,10 @@ class SplashPreload extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: Positioned.fill(
+    return SafeArea(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: FittedBox(
           fit: BoxFit.cover,
           child: Image(image: _getAssetImage()),

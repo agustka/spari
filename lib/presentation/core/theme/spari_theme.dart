@@ -39,13 +39,14 @@ class SpariTheme extends InheritedWidget {
   static final MaterialColor accentColor = toMaterialColor(const Color(0xff127681));
   static final MaterialColor tertiaryColor = toMaterialColor(const Color(0xff10375c));
   static final MaterialColor textColor = toMaterialColor(const Color(0xff4f4f4f));
+  static final MaterialColor white = toMaterialColor(const Color(0xffffffff));
   static final MaterialColor grayLight = toMaterialColor(const Color(0xfffafafa));
   static final MaterialColor grayMedium = toMaterialColor(const Color(0xfff0f0f0));
   static final MaterialColor grayDark = toMaterialColor(const Color(0xffd1d1d1));
   static final MaterialColor backgroundColor = toMaterialColor(const Color(0xfff4f6ff));
 
-  double get cardElevation => 12;
-  double get borderRadius => 20;
+  static const double cardElevation = 12;
+  static const double borderRadius = 20;
 
   TextStyle get body11pt => theme.textTheme.bodyText1.copyWith(
     fontSize: 11,

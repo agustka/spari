@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:spari/application/core/navigation/navigation_bloc.dart';
-import 'package:spari/domain/core/navigation/value_objects/route_link.dart';
 import 'package:spari/presentation/core/page_root.dart';
-import 'package:spari/presentation/core/theme/spari_theme.dart';
 import 'package:spari/presentation/login/login_page.dart';
-import 'package:spari/setup.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -17,11 +13,11 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 1000)).then((value) {
+    Future.delayed(const Duration(milliseconds: 500)).then((value) {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 1000),
+          transitionDuration: const Duration(milliseconds: 1500),
           pageBuilder: (context, animation, secondaryAnimation) => LoginPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;

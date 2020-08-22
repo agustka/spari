@@ -21,6 +21,12 @@ class S implements WidgetsLocalizations {
   String get date_short_format_no_year => "MMMM dd";
   String get date_short_format => "MMMM dd, yyyy";
   String get ok => "OK";
+  String get email => "Email";
+  String get password => "Password";
+  String get login => "Log in";
+  String get sign_up => "Sign up for an account";
+  String get invalid_email => "Invalid email";
+  String get invalid_password => "Invalid password, must be 6 characters or longer";
 }
 
 class $is extends S {
@@ -37,6 +43,18 @@ class $is extends S {
   String get date_short_format => "dd.MM.yyyy";
   @override
   String get ok => "Í lagi";
+  @override
+  String get email => "Email";
+  @override
+  String get password => "Lykilorð";
+  @override
+  String get login => "Log in";
+  @override
+  String get sign_up => "Búa til nýjan aðgang";
+  @override
+  String get invalid_email => "Ógilt email'";
+  @override
+  String get invalid_password => "Ógilt lykilorð, þarf að vera a.m.k. 6 stafa";
 }
 
 class $en extends S {
