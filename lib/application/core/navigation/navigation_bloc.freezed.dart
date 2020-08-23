@@ -13,6 +13,11 @@ class _$NavigationEventTearOff {
   const _$NavigationEventTearOff();
 
 // ignore: unused_element
+  SubscribeToAuthChanges subscribeToAuthChanges() {
+    return const SubscribeToAuthChanges();
+  }
+
+// ignore: unused_element
   Navigate navigate({@required RouteLink routeLink}) {
     return Navigate(
       routeLink: routeLink,
@@ -68,6 +73,7 @@ const $NavigationEvent = _$NavigationEventTearOff();
 mixin _$NavigationEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -78,6 +84,7 @@ mixin _$NavigationEvent {
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -89,6 +96,7 @@ mixin _$NavigationEvent {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -99,6 +107,7 @@ mixin _$NavigationEvent {
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -123,6 +132,130 @@ class _$NavigationEventCopyWithImpl<$Res>
   final NavigationEvent _value;
   // ignore: unused_field
   final $Res Function(NavigationEvent) _then;
+}
+
+abstract class $SubscribeToAuthChangesCopyWith<$Res> {
+  factory $SubscribeToAuthChangesCopyWith(SubscribeToAuthChanges value,
+          $Res Function(SubscribeToAuthChanges) then) =
+      _$SubscribeToAuthChangesCopyWithImpl<$Res>;
+}
+
+class _$SubscribeToAuthChangesCopyWithImpl<$Res>
+    extends _$NavigationEventCopyWithImpl<$Res>
+    implements $SubscribeToAuthChangesCopyWith<$Res> {
+  _$SubscribeToAuthChangesCopyWithImpl(SubscribeToAuthChanges _value,
+      $Res Function(SubscribeToAuthChanges) _then)
+      : super(_value, (v) => _then(v as SubscribeToAuthChanges));
+
+  @override
+  SubscribeToAuthChanges get _value => super._value as SubscribeToAuthChanges;
+}
+
+class _$SubscribeToAuthChanges implements SubscribeToAuthChanges {
+  const _$SubscribeToAuthChanges();
+
+  @override
+  String toString() {
+    return 'NavigationEvent.subscribeToAuthChanges()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SubscribeToAuthChanges);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
+    @required Result navigate(RouteLink routeLink),
+    @required Result pop(),
+    @required Result launchYoutubeVideo(String videoId),
+    @required Result launchWebUrl(Uri webUrl),
+    @required Result launchMapCoordinates(LatLng latLng, String label),
+    @required Result setStatusBarColor(int color),
+    @required Result ignoreNativePop(bool ignore),
+  }) {
+    assert(subscribeToAuthChanges != null);
+    assert(navigate != null);
+    assert(pop != null);
+    assert(launchYoutubeVideo != null);
+    assert(launchWebUrl != null);
+    assert(launchMapCoordinates != null);
+    assert(setStatusBarColor != null);
+    assert(ignoreNativePop != null);
+    return subscribeToAuthChanges();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
+    Result navigate(RouteLink routeLink),
+    Result pop(),
+    Result launchYoutubeVideo(String videoId),
+    Result launchWebUrl(Uri webUrl),
+    Result launchMapCoordinates(LatLng latLng, String label),
+    Result setStatusBarColor(int color),
+    Result ignoreNativePop(bool ignore),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (subscribeToAuthChanges != null) {
+      return subscribeToAuthChanges();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
+    @required Result navigate(Navigate value),
+    @required Result pop(Pop value),
+    @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
+    @required Result launchWebUrl(LaunchWebUrl value),
+    @required Result launchMapCoordinates(LaunchMap value),
+    @required Result setStatusBarColor(SetStatusBarColor value),
+    @required Result ignoreNativePop(IgnoreNativePop value),
+  }) {
+    assert(subscribeToAuthChanges != null);
+    assert(navigate != null);
+    assert(pop != null);
+    assert(launchYoutubeVideo != null);
+    assert(launchWebUrl != null);
+    assert(launchMapCoordinates != null);
+    assert(setStatusBarColor != null);
+    assert(ignoreNativePop != null);
+    return subscribeToAuthChanges(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
+    Result navigate(Navigate value),
+    Result pop(Pop value),
+    Result launchYoutubeVideo(LaunchYoutubeVideo value),
+    Result launchWebUrl(LaunchWebUrl value),
+    Result launchMapCoordinates(LaunchMap value),
+    Result setStatusBarColor(SetStatusBarColor value),
+    Result ignoreNativePop(IgnoreNativePop value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (subscribeToAuthChanges != null) {
+      return subscribeToAuthChanges(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SubscribeToAuthChanges implements NavigationEvent {
+  const factory SubscribeToAuthChanges() = _$SubscribeToAuthChanges;
 }
 
 abstract class $NavigateCopyWith<$Res> {
@@ -181,6 +314,7 @@ class _$Navigate implements Navigate {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -189,6 +323,7 @@ class _$Navigate implements Navigate {
     @required Result setStatusBarColor(int color),
     @required Result ignoreNativePop(bool ignore),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -202,6 +337,7 @@ class _$Navigate implements Navigate {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -221,6 +357,7 @@ class _$Navigate implements Navigate {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -229,6 +366,7 @@ class _$Navigate implements Navigate {
     @required Result setStatusBarColor(SetStatusBarColor value),
     @required Result ignoreNativePop(IgnoreNativePop value),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -242,6 +380,7 @@ class _$Navigate implements Navigate {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -299,6 +438,7 @@ class _$Pop implements Pop {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -307,6 +447,7 @@ class _$Pop implements Pop {
     @required Result setStatusBarColor(int color),
     @required Result ignoreNativePop(bool ignore),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -320,6 +461,7 @@ class _$Pop implements Pop {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -339,6 +481,7 @@ class _$Pop implements Pop {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -347,6 +490,7 @@ class _$Pop implements Pop {
     @required Result setStatusBarColor(SetStatusBarColor value),
     @required Result ignoreNativePop(IgnoreNativePop value),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -360,6 +504,7 @@ class _$Pop implements Pop {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -439,6 +584,7 @@ class _$LaunchYoutubeVideo implements LaunchYoutubeVideo {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -447,6 +593,7 @@ class _$LaunchYoutubeVideo implements LaunchYoutubeVideo {
     @required Result setStatusBarColor(int color),
     @required Result ignoreNativePop(bool ignore),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -460,6 +607,7 @@ class _$LaunchYoutubeVideo implements LaunchYoutubeVideo {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -479,6 +627,7 @@ class _$LaunchYoutubeVideo implements LaunchYoutubeVideo {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -487,6 +636,7 @@ class _$LaunchYoutubeVideo implements LaunchYoutubeVideo {
     @required Result setStatusBarColor(SetStatusBarColor value),
     @required Result ignoreNativePop(IgnoreNativePop value),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -500,6 +650,7 @@ class _$LaunchYoutubeVideo implements LaunchYoutubeVideo {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -582,6 +733,7 @@ class _$LaunchWebUrl implements LaunchWebUrl {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -590,6 +742,7 @@ class _$LaunchWebUrl implements LaunchWebUrl {
     @required Result setStatusBarColor(int color),
     @required Result ignoreNativePop(bool ignore),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -603,6 +756,7 @@ class _$LaunchWebUrl implements LaunchWebUrl {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -622,6 +776,7 @@ class _$LaunchWebUrl implements LaunchWebUrl {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -630,6 +785,7 @@ class _$LaunchWebUrl implements LaunchWebUrl {
     @required Result setStatusBarColor(SetStatusBarColor value),
     @required Result ignoreNativePop(IgnoreNativePop value),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -643,6 +799,7 @@ class _$LaunchWebUrl implements LaunchWebUrl {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -731,6 +888,7 @@ class _$LaunchMap implements LaunchMap {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -739,6 +897,7 @@ class _$LaunchMap implements LaunchMap {
     @required Result setStatusBarColor(int color),
     @required Result ignoreNativePop(bool ignore),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -752,6 +911,7 @@ class _$LaunchMap implements LaunchMap {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -771,6 +931,7 @@ class _$LaunchMap implements LaunchMap {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -779,6 +940,7 @@ class _$LaunchMap implements LaunchMap {
     @required Result setStatusBarColor(SetStatusBarColor value),
     @required Result ignoreNativePop(IgnoreNativePop value),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -792,6 +954,7 @@ class _$LaunchMap implements LaunchMap {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -875,6 +1038,7 @@ class _$SetStatusBarColor implements SetStatusBarColor {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -883,6 +1047,7 @@ class _$SetStatusBarColor implements SetStatusBarColor {
     @required Result setStatusBarColor(int color),
     @required Result ignoreNativePop(bool ignore),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -896,6 +1061,7 @@ class _$SetStatusBarColor implements SetStatusBarColor {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -915,6 +1081,7 @@ class _$SetStatusBarColor implements SetStatusBarColor {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -923,6 +1090,7 @@ class _$SetStatusBarColor implements SetStatusBarColor {
     @required Result setStatusBarColor(SetStatusBarColor value),
     @required Result ignoreNativePop(IgnoreNativePop value),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -936,6 +1104,7 @@ class _$SetStatusBarColor implements SetStatusBarColor {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -1017,6 +1186,7 @@ class _$IgnoreNativePop implements IgnoreNativePop {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result subscribeToAuthChanges(),
     @required Result navigate(RouteLink routeLink),
     @required Result pop(),
     @required Result launchYoutubeVideo(String videoId),
@@ -1025,6 +1195,7 @@ class _$IgnoreNativePop implements IgnoreNativePop {
     @required Result setStatusBarColor(int color),
     @required Result ignoreNativePop(bool ignore),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -1038,6 +1209,7 @@ class _$IgnoreNativePop implements IgnoreNativePop {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result subscribeToAuthChanges(),
     Result navigate(RouteLink routeLink),
     Result pop(),
     Result launchYoutubeVideo(String videoId),
@@ -1057,6 +1229,7 @@ class _$IgnoreNativePop implements IgnoreNativePop {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     @required Result navigate(Navigate value),
     @required Result pop(Pop value),
     @required Result launchYoutubeVideo(LaunchYoutubeVideo value),
@@ -1065,6 +1238,7 @@ class _$IgnoreNativePop implements IgnoreNativePop {
     @required Result setStatusBarColor(SetStatusBarColor value),
     @required Result ignoreNativePop(IgnoreNativePop value),
   }) {
+    assert(subscribeToAuthChanges != null);
     assert(navigate != null);
     assert(pop != null);
     assert(launchYoutubeVideo != null);
@@ -1078,6 +1252,7 @@ class _$IgnoreNativePop implements IgnoreNativePop {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result subscribeToAuthChanges(SubscribeToAuthChanges value),
     Result navigate(Navigate value),
     Result pop(Pop value),
     Result launchYoutubeVideo(LaunchYoutubeVideo value),

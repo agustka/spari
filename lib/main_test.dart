@@ -15,7 +15,7 @@ Future<void> main() async {
     err(details, trace: details.stack);
   };
   runZoned(() async {
-    setup(environment: BuildEnvironment.test);
+    await setup(environment: BuildEnvironment.test);
     runApp(const App(SpariRouter.splashPage));
   }, onError: (dynamic error, StackTrace stackTrace) {
     err(error, trace: stackTrace);

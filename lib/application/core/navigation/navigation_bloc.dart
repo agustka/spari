@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:latlong/latlong.dart';
@@ -12,6 +14,7 @@ import 'package:spari/domain/core/navigation/named_route.dart';
 import 'package:spari/domain/core/navigation/route_arguments.dart';
 import 'package:spari/domain/core/navigation/value_objects/route_link.dart';
 import 'package:spari/infrastructure/core/error_handling/error_handler.dart';
+import 'package:spari/presentation/core/app.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 part 'navigation_bloc.freezed.dart';
@@ -21,37 +24,57 @@ part 'navigation_state.dart';
 @LazySingleton()
 class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
   final Random rnd = Random(10);
+  StreamSubscription _authChangeSubscription;
 
   NavigationBloc() : super(NavigationState.initial(data: NavigationStateData.initial()));
 
   @override
   Stream<NavigationState> mapEventToState(NavigationEvent event) async* {
-    yield* event.map(launchYoutubeVideo: (event) async* {
-      _launchYoutube(event.videoId);
-    }, launchWebUrl: (event) async* {
-      launch(event.webUrl.toString());
-    }, launchMapCoordinates: (event) async* {
-      _launchMaps(event.latLng, event.label);
-    }, navigate: (event) async* {
-      yield* event.routeLink.fold(
-        (failure) async* {
-          err(Error.safeToString(failure));
-        },
-        (value) async* {
-          yield _followRoute(
-            route: value.route,
-            arguments: value.arguments,
-            popCurrent: value.popCurrent,
-          );
-        },
-      );
-    }, pop: (event) async* {
-      yield _followRoute(popCurrent: true, route: null, arguments: const RouteArguments.none());
-    }, setStatusBarColor: (event) async* {
-      // TODO
-    }, ignoreNativePop: (event) async* {
-      yield NavigationState.initial(data: state.data.copyWith(ignoreNativePop: event.ignore));
-    });
+    yield* event.map(
+      subscribeToAuthChanges: (event) async* {
+        _authChangeSubscription = FirebaseAuth.instance.authStateChanges().listen((User user) {
+          if (user == null) {
+            final ExtendedNavigatorState nav = ExtendedNavigator.named(App.routerName);
+            if (nav != null) {
+              nav.popUntil((route) => route.settings.name == "/");
+              add(NavigationEvent.navigate(routeLink: RouteLink.login()));
+            }
+          }
+        });
+      },
+      launchYoutubeVideo: (event) async* {
+        _launchYoutube(event.videoId);
+      },
+      launchWebUrl: (event) async* {
+        launch(event.webUrl.toString());
+      },
+      launchMapCoordinates: (event) async* {
+        _launchMaps(event.latLng, event.label);
+      },
+      navigate: (event) async* {
+        yield* event.routeLink.fold(
+          (failure) async* {
+            err(Error.safeToString(failure));
+          },
+          (value) async* {
+            yield _followRoute(
+              route: value.route,
+              arguments: value.arguments,
+              popCurrent: value.popCurrent,
+            );
+          },
+        );
+      },
+      pop: (event) async* {
+        yield _followRoute(popCurrent: true, route: null, arguments: const RouteArguments.none());
+      },
+      setStatusBarColor: (event) async* {
+        // TODO
+      },
+      ignoreNativePop: (event) async* {
+        yield NavigationState.initial(data: state.data.copyWith(ignoreNativePop: event.ignore));
+      },
+    );
   }
 
   NavigationState _followRoute({
@@ -115,5 +138,11 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
     }
 
     return Uri.encodeFull("https://www.google.com/maps/search/?api=1&query=$latitude,$longitude");
+  }
+
+  @override
+  Future<void> close() {
+    _authChangeSubscription?.cancel();
+    return super.close();
   }
 }

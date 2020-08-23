@@ -10,8 +10,8 @@ void main() {
   FlutterError.onError = (FlutterErrorDetails details) async {
     err(details, trace: details.stack);
   };
-  runZoned(() {
-    setup(environment: BuildEnvironment.production);
+  runZoned(() async {
+    await setup(environment: BuildEnvironment.production);
     runApp(const App(SpariRouter.splashPage));
   }, onError: (dynamic error, StackTrace stackTrace) {
     err(error, trace: stackTrace);

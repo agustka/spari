@@ -5,15 +5,15 @@ import 'package:spari/presentation/login/login_page.dart';
 import 'package:spari/presentation/overview/overview_page.dart';
 import 'package:spari/presentation/settings/settings_page.dart';
 
-@MaterialAutoRouter(
+@AdaptiveAutoRouter(
   generateNavigationHelperExtension: true,
   routesClassName: "SpariRouter",
   routes: [
-    MaterialRoute(page: SplashPage, path: "/", initial: true),
-    MaterialRoute(page: LoginPage, path: "/login"),
-    MaterialRoute(page: OverviewPage, path: "/overview"),
-    MaterialRoute(page: LoanDetailsPage, path: "/loan-details"),
-    MaterialRoute(page: SettingsPage, path: "/settings"),
+    AdaptiveRoute(page: SplashPage, path: "/", initial: true),
+    AdaptiveRoute(page: LoginPage, path: "/login"),
+    AdaptiveRoute(page: OverviewPage, path: "/overview"),
+    AdaptiveRoute(page: LoanDetailsPage, path: "/loan-details"),
+    AdaptiveRoute(page: SettingsPage, path: "/settings"),
   ],
 )
 class $Router {}

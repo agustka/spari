@@ -1,11 +1,13 @@
 import 'dart:ui';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:spari/setup.config.dart';
 
-void setup({@required BuildEnvironment environment}) {
+Future<void> setup({@required BuildEnvironment environment}) async {
+  await Firebase.initializeApp();
   _configureFlavors(environment);
   _configureInjection(environment: environment);
 }
@@ -28,7 +30,7 @@ void _configureFlavors(BuildEnvironment environment) {
   FlavorConfig.addConfig(
     environment: BuildEnvironment.test,
     variables: const FlavorConfiguration(
-      defaultLocale: Locale("en", "GB"),
+      defaultLocale: Locale("is", "IS"),
     ),
   );
   FlavorConfig.addConfig(

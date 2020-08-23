@@ -7,7 +7,6 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 
 import '../../../presentation/core/splash_page.dart';
 import '../../../presentation/loan_details/loan_details_page.dart';
@@ -44,31 +43,31 @@ class Router extends RouterBase {
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
     SplashPage: (data) {
-      return MaterialPageRoute<dynamic>(
+      return buildAdaptivePageRoute<dynamic>(
         builder: (context) => SplashPage(),
         settings: data,
       );
     },
     LoginPage: (data) {
-      return MaterialPageRoute<dynamic>(
+      return buildAdaptivePageRoute<dynamic>(
         builder: (context) => LoginPage(),
         settings: data,
       );
     },
     OverviewPage: (data) {
-      return MaterialPageRoute<dynamic>(
+      return buildAdaptivePageRoute<dynamic>(
         builder: (context) => OverviewPage(),
         settings: data,
       );
     },
     LoanDetailsPage: (data) {
-      return MaterialPageRoute<dynamic>(
+      return buildAdaptivePageRoute<dynamic>(
         builder: (context) => LoanDetailsPage(),
         settings: data,
       );
     },
     SettingsPage: (data) {
-      return MaterialPageRoute<dynamic>(
+      return buildAdaptivePageRoute<dynamic>(
         builder: (context) => SettingsPage(),
         settings: data,
       );

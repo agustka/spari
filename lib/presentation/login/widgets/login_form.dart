@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spari/application/core/language/language_bloc.dart';
 import 'package:spari/application/login/login_bloc.dart';
 import 'package:spari/domain/core/value_objects/email_value_object.dart';
 import 'package:spari/domain/core/value_objects/password_value_object.dart';
+import 'package:spari/presentation/core/dialogs/spari_language_dialog.dart';
 import 'package:spari/presentation/core/localization/i18n.dart';
 import 'package:spari/presentation/core/theme/spari_theme.dart';
+import 'package:spari/presentation/core/widgets/dialogs/spari_alert_dialog.dart';
 import 'package:spari/presentation/core/widgets/spari_spinner.dart';
 import 'package:spari/presentation/core/widgets/tappable/spari_button.dart';
-import 'package:spari/presentation/core/widgets/tappable/tap_visual.dart';
+import 'package:spari/presentation/core/widgets/tappable/spari_link_button.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -23,6 +27,7 @@ class LoginFormState extends State<LoginForm> {
   final TextEditingController _passwordText = TextEditingController();
   final _cardAnimKey = GlobalKey<FormState>();
   final _contentAnimKey = GlobalKey<FormState>();
+  final _otherOptionsAnimKey = GlobalKey<FormState>();
   bool _passwordVisible = true;
   bool _cardVisible = false;
   bool _loginVisible = false;
@@ -45,6 +50,11 @@ class LoginFormState extends State<LoginForm> {
           setState(() {
             _loginVisible = true;
           });
+        } else if (state.data.loginWrong) {
+          SpariAlertDialog().show(
+            context: context,
+            content: S.of(context).login_wrong_content,
+          );
         }
       },
       builder: (context, state) {
@@ -90,6 +100,34 @@ class LoginFormState extends State<LoginForm> {
           ),
         ),
         AnimatedOpacity(
+          key: _otherOptionsAnimKey,
+          opacity: _loginVisible ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 500),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Material(
+                    color: Colors.transparent,
+                    child: IconButton(
+                      icon: Icon(Icons.language, color: SpariTheme.white),
+                      onPressed: () {
+                        SpariLanguageDialog(context: context, onLanguageSelected: (locale) {
+                          BlocProvider.of<LanguageBloc>(context).add(LanguageEvent.setLanguage(locale: locale));
+                        }).show();
+                      },
+                    ),
+                  ),
+                  SpariLinkButton(onTap: () {}, text: S.of(context).forgot_password, color: SpariTheme.white),
+                ],
+              ),
+            ),
+          ),
+        ),
+        AnimatedOpacity(
           key: _cardAnimKey,
           opacity: _cardVisible ? 1.0 : 0.0,
           duration: const Duration(milliseconds: 500),
@@ -111,7 +149,7 @@ class LoginFormState extends State<LoginForm> {
           ),
         ),
         Transform.translate(
-          offset: const Offset(0, -138),
+          offset: Offset(0, _getLogoOffset(state)),
           child: Hero(
             tag: "login_icon",
             child: Image.asset("res/images/spari_logo.webp", width: 70, height: 70),
@@ -171,20 +209,27 @@ class LoginFormState extends State<LoginForm> {
             },
           ),
           const SizedBox(height: 12),
-          TapVisual(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                S.of(context).sign_up,
-                style: SpariTheme.of(context).body13pt.copyWith(color: SpariTheme.secondaryColor),
-              ),
-            ),
-          ),
+          SpariLinkButton(
+              onTap: () {
+                // TODO
+              },
+              text: S.of(context).sign_up,
+              color: SpariTheme.secondaryColor),
           const SizedBox(height: 12),
         ],
       ),
     );
+  }
+
+  double _getLogoOffset(LoginState state) {
+    double offset = -138;
+    if (!state.data.emailValid) {
+      offset -= 11;
+    }
+    if (!state.data.passwordValid) {
+      offset -= 11;
+    }
+    return offset;
   }
 
   @override

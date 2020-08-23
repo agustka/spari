@@ -17,7 +17,7 @@ class App extends StatelessWidget {
 
   const App(this._initialRoute);
 
-  String get routerName => "IsbRouter";
+  static String get routerName => "SpariRouter";
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(
           lazy: false,
-          create: (context) => getIt<NavigationBloc>(),
+          create: (context) => getIt<NavigationBloc>()..add(const NavigationEvent.subscribeToAuthChanges()),
         ),
         BlocProvider(
           lazy: false,

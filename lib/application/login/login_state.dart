@@ -14,6 +14,7 @@ class LoginStateData {
   final AuthState authState;
   final bool emailValid;
   final bool passwordValid;
+  final bool loginWrong;
 
   const LoginStateData({
     @required this.email,
@@ -21,6 +22,7 @@ class LoginStateData {
     @required this.authState,
     @required this.emailValid,
     @required this.passwordValid,
+    @required this.loginWrong,
   });
 
   factory LoginStateData.initial() {
@@ -30,6 +32,7 @@ class LoginStateData {
       authState: AuthState.loading,
       emailValid: true,
       passwordValid: true,
+      loginWrong: false,
     );
   }
 
@@ -39,6 +42,7 @@ class LoginStateData {
     AuthState authState,
     bool emailValid,
     bool passwordValid,
+    bool loginWrong,
   }) {
     return LoginStateData(
       email: email ?? this.email,
@@ -46,6 +50,7 @@ class LoginStateData {
       authState: authState ?? this.authState,
       emailValid: emailValid ?? this.emailValid,
       passwordValid: passwordValid ?? this.passwordValid,
+      loginWrong: loginWrong ?? this.loginWrong,
     );
   }
 }

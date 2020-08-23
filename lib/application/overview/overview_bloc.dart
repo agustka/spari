@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
@@ -23,20 +24,27 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> with AnalyticsHelp
 
   @override
   Stream<OverviewState> mapEventToState(OverviewEvent event) async* {
-    yield* event.map(loadEntities: (event) async* {
-      log(Event.openOverview());
+    yield* event.map(
+      loadEntities: (event) async* {
+        log(Event.openOverview());
 
-      yield OverviewState.loading(data: state.data);
-      _loanStreamSubscription = _loansRepository.loans(listener: (loans) => add(OverviewEvent.receiveEntities(loans)));
-    }, receiveEntities: (event) async* {
-      yield event.entities.fold((failure) {
-        log(Event.error(error: failure, stacktrace: StackTrace.current));
+        Future.delayed(const Duration(seconds: 10)).then((value) {
+          FirebaseAuth.instance.signOut();
+        });
 
-        return OverviewState.entitiesLoaded(data: state.data.copyWith(errorLoadingEntities: true));
-      }, (value) {
+        yield OverviewState.loading(data: state.data);
+        _loanStreamSubscription = _loansRepository.loans(listener: (loans) => add(OverviewEvent.receiveEntities(loans)));
+      },
+      receiveEntities: (event) async* {
+        yield event.entities.fold((failure) {
+          log(Event.error(error: failure, stacktrace: StackTrace.current));
+
+          return OverviewState.entitiesLoaded(data: state.data.copyWith(errorLoadingEntities: true));
+        }, (value) {
           return OverviewState.entitiesLoaded(data: state.data.copyWith(entities: value));
-      });
-    });
+        });
+      },
+    );
   }
 
   @override

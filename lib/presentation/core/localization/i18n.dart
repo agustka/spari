@@ -25,8 +25,10 @@ class S implements WidgetsLocalizations {
   String get password => "Password";
   String get login => "Log in";
   String get sign_up => "Sign up for an account";
-  String get invalid_email => "Invalid email";
-  String get invalid_password => "Invalid password, must be 6 characters or longer";
+  String get invalid_email => "Invalid email.";
+  String get invalid_password => "Invalid password, must be 6 characters or longer.";
+  String get login_wrong_content => "Email or password not correct, try again.";
+  String get forgot_password => "Forgot password";
 }
 
 class $is extends S {
@@ -48,13 +50,17 @@ class $is extends S {
   @override
   String get password => "Lykilorð";
   @override
-  String get login => "Log in";
+  String get login => "Skrá inn";
   @override
   String get sign_up => "Búa til nýjan aðgang";
   @override
-  String get invalid_email => "Ógilt email'";
+  String get invalid_email => "Ógilt email.";
   @override
-  String get invalid_password => "Ógilt lykilorð, þarf að vera a.m.k. 6 stafa";
+  String get invalid_password => "Ógilt lykilorð, þarf að vera a.m.k. 6 stafa.";
+  @override
+  String get login_wrong_content => "Rangt email eða lykilorð, reyndu aftur.";
+  @override
+  String get forgot_password => "Gleymt lykilorð";
 }
 
 class $en extends S {

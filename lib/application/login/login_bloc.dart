@@ -26,8 +26,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
     yield* event.map(
       checkLoginStatus: (event) async* {
-        await Firebase.initializeApp();
-
         await Future.delayed(const Duration(seconds: 2));
 
         _authSubscription = FirebaseAuth.instance.authStateChanges().listen((User user) {
@@ -50,7 +48,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         final password = event.password.fold((failure) => failure, (value) => value);
         if (email is Failure || password is Failure) {
           yield LoginState.loaded(
-            
             data: state.data.copyWith(
               authState: AuthState.unauthorized,
               emailValid: email is! Failure,
@@ -58,11 +55,28 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             ),
           );
         } else {
-          yield LoginState.loaded(data: state.data.copyWith(authState: AuthState.loading, emailValid: true, passwordValid: true));
-
-          await Future.delayed(const Duration(seconds: 2));
-
-          yield LoginState.loaded(data: state.data.copyWith(authState: AuthState.unauthorized));
+          yield LoginState.loaded(
+            data: state.data.copyWith(
+              authState: AuthState.loading,
+              loginWrong: false,
+              emailValid: true,
+              passwordValid: true,
+            ),
+          );
+          try {
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
+              email: email.toString(),
+              password: password.toString(),
+            );
+            // TODO
+            /*final User user = FirebaseAuth.instance.currentUser;
+            if (!user.emailVerified) {
+              await user.sendEmailVerification();
+            }*/
+            getIt<NavigationBloc>().add(NavigationEvent.navigate(routeLink: RouteLink.overview(popCurrent: true)));
+          } on FirebaseAuthException catch (_) {
+            yield LoginState.loaded(data: state.data.copyWith(authState: AuthState.unauthorized, loginWrong: true));
+          }
         }
       },
     );
